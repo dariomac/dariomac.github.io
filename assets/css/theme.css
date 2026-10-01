@@ -1,32 +1,34 @@
 /*
- * Theme: clean
- * System fonts, white background, blue links, lots of space.
+ * Theme: warm
+ * Rounded type, soft sand colors and a coral accent, with a big friendly photo.
  *
  * This file belongs to the theme and is replaced when you switch themes.
  * Put your own changes in custom.css instead.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap");
+
 :root {
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-body);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --bg: #ffffff;
-  --text: #1f2328;
-  --muted: #656d76;
-  --accent: #0b62d6;
-  --border: #e5e7eb;
-  --code-bg: #f4f5f7;
+  --bg: #fdf6ee;
+  --text: #3d3229;
+  --muted: #86725f;
+  --accent: #d9572b;
+  --border: #f0e2d3;
+  --code-bg: #f6eadc;
   --max: 42rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111418;
-    --text: #e6e8eb;
-    --muted: #9aa4af;
-    --accent: #6cb0ff;
-    --border: #2a3038;
-    --code-bg: #1b2027;
+    --bg: #221c18;
+    --text: #f3e9df;
+    --muted: #b5a393;
+    --accent: #ff8a65;
+    --border: #3a302a;
+    --code-bg: #2c2420;
   }
 }
 
@@ -38,7 +40,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 header, main, footer {
@@ -47,73 +49,100 @@ header, main, footer {
   padding: 0 1rem;
 }
 
-a { color: var(--accent); }
+a { color: var(--accent); text-underline-offset: 0.2em; }
 
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  align-items: baseline;
+  gap: 0.75rem 1.5rem;
+  align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding-top: 1.75rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .site-title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   color: var(--text);
   text-decoration: none;
 }
 
+.site-header nav { display: flex; gap: 0.5rem; }
+
 .site-header nav a {
-  margin-left: 1rem;
-  color: var(--muted);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--code-bg);
+  color: var(--text);
   text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.site-header nav a:first-child { margin-left: 0; }
-.site-header nav a:hover { color: var(--accent); }
+.site-header nav a:hover { background: var(--accent); color: var(--bg); }
 
-main { padding-top: 1.5rem; padding-bottom: 3rem; }
+main { padding-top: 1rem; padding-bottom: 3rem; }
 
-h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; }
-h1 { font-size: 2rem; margin-top: 1rem; }
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.25;
+}
 
-img { max-width: 100%; height: auto; }
+h1 { font-size: 2.2rem; margin-top: 1rem; }
+
+img { max-width: 100%; height: auto; border-radius: 14px; }
 
 pre, code {
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: 0.88em;
   background: var(--code-bg);
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
-code { padding: 0.1em 0.35em; }
-pre { padding: 1rem; overflow-x: auto; }
+code { padding: 0.15em 0.4em; }
+pre { padding: 1rem 1.2rem; overflow-x: auto; }
 pre code { padding: 0; background: none; }
 
 blockquote {
   margin: 1.5rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--border);
+  padding: 0.75rem 1.25rem;
+  background: var(--code-bg);
+  border-radius: 14px;
   color: var(--muted);
 }
 
-.avatar {
+blockquote p { margin: 0; }
+
+.home .avatar {
   display: block;
-  width: 96px;
-  height: 96px;
-  margin: 1rem 0 0;
+  width: 136px;
+  height: 136px;
+  margin: 1.5rem auto 0;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 9px var(--accent);
 }
 
+.avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+
+.home > h1:first-of-type,
+.home > h1:first-of-type + p { text-align: center; }
+
+.home > h1:first-of-type + p { color: var(--muted); font-size: 1.1rem; }
+
 .post-list { list-style: none; padding: 0; }
-.post-list li { margin-bottom: 1rem; }
+.post-list li {
+  margin-bottom: 0.75rem;
+  padding: 0.9rem 1.15rem;
+  background: var(--code-bg);
+  border-radius: 14px;
+}
+.post-list a { font-weight: 800; text-decoration: none; }
+.post-list a:hover { text-decoration: underline; }
 .post-list p { margin: 0.25rem 0 0; color: var(--muted); }
+
 .post-date { color: var(--muted); font-size: 0.9rem; margin-left: 0.5rem; }
 .post .post-date { margin: -0.5rem 0 2rem; display: block; }
 .back { margin-top: 3rem; }
@@ -121,7 +150,7 @@ blockquote {
 .site-footer {
   padding-top: 1.5rem;
   padding-bottom: 2rem;
-  border-top: 1px solid var(--border);
+  border-top: 2px dotted var(--border);
   color: var(--muted);
   font-size: 0.9rem;
 }

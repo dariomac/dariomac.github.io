@@ -10,7 +10,7 @@ url: "https://dariomac.github.io"          # e.g. https://yourname.com, set by /
 baseurl: ""
 
 # How the site looks. Change it with /site:theme.
-theme_name: clean
+theme_name: warm
 
 # Optional photo for the home page, e.g. /assets/images/me.jpg
 avatar: ""
